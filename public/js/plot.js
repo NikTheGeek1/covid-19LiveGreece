@@ -87,7 +87,7 @@ const range_secondPlot = [minRange_secondPlot, maxRange_secondPlot];
   },
   //////// YAXIS
   yaxis: {
-    range:range_total,
+    range:range_secondPlot,
   titlefont: {
         family: 'Arial, sans-serif',
         size: 28,
@@ -106,7 +106,7 @@ const range_secondPlot = [minRange_secondPlot, maxRange_secondPlot];
   },
   ///////////// YAXIS2
   yaxis2: {
-    range:range_secondPlot,
+    range:range_total ,
   domain: [.55, 1],
   tickangle: 45,
 
