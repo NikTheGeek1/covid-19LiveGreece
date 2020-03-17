@@ -118,7 +118,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
   },
     xref: 'paper',
     yref: 'paper',
-    x: -.08,
+    x: -.15,
     xanchor: 'left',
     y: 0.3,
     yanchor: 'bottom',
