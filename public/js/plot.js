@@ -12,6 +12,17 @@ text_total[text_total.length-1] = String(total_cases[total_cases.length-1]);
 text_deaths[text_deaths.length-1] = String(deaths[deaths.length-1]);
 text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
 
+const maxRange_total = Math.max(...total_cases) + (Math.round((Math.max(...total_cases)- Math.min(...total_cases))/4 ));
+
+const maxRange_deaths = Math.max(...deaths) + (Math.round((Math.max(...deaths)- Math.min(...deaths))/4 ));
+
+const maxRange_recovered = Math.max(...text_recovered) + (Math.round((Math.max(...text_recovered)- Math.min(...text_recovered))/4 ));
+
+const maxRange_secondPlot = Math.max(maxRange_deaths, maxRange_recovered);
+const minRange_secondPlot = Math.Min(Match.min(...deaths), Match.min(...recovered));
+
+const range_total = [Math.min(...total_cases), maxRange_total];
+const range_secondPlot = [minRange_secondPlot, maxRange_secondPlot];
 
   var total_cases = {
     x: dates,
@@ -20,7 +31,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
     type: 'scatter',
     mode:'lines+markers+text',
     text:text_total,
-    textposition: 'right',
+    textposition: 'top',
     textfont:{size:20, color:"#996100"},
     line:{color:"#996100", width:3},
     name: "total_cases"
@@ -32,7 +43,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
     type: 'scatter',
     mode:'lines+markers+text',
     text:text_recovered,
-    textposition: 'right',
+    textposition: 'top',
     textfont:{size:20, color:"#0d853d"},
     line:{color:"#0d853d", width:3},
     name: "recovered"
@@ -44,7 +55,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
     type: 'scatter',
     mode:'lines+markers+text',
     text:text_deaths,
-    textposition: 'right',
+    textposition: 'top',
     textfont:{size:20, color:"#d42828"},
     line:{color:"#d42828", width:3},
     name:'deaths'
@@ -76,6 +87,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
   },
   //////// YAXIS
   yaxis: {
+    range:range_total,
   titlefont: {
         family: 'Arial, sans-serif',
         size: 28,
@@ -94,6 +106,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
   },
   ///////////// YAXIS2
   yaxis2: {
+    range:range_secondPlot,
   domain: [.55, 1],
   tickangle: 45,
 
