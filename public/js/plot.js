@@ -5,11 +5,21 @@ var total_cases = JSON.parse(document.getElementById("total_cases").value);
 var recovered = JSON.parse(document.getElementById("recovered").value);
 var deaths = JSON.parse(document.getElementById("deaths").value);
 
+const text_total = Array(total_cases.length).fill("");
+const text_deaths = Array(deaths.length).fill("");
+const text_recovered = Array(recovered.length).fill("");
+text_total[text_total.length-1] = String(total_cases[total_cases.length-1]);
+text_deaths[text_deaths.length-1] = String(deaths[deaths.length-1]);
+text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
+
+
   var total_cases = {
     x: dates,
     y: total_cases,
     yaxis: 'y2',
     type: 'scatter',
+    mode:'lines+markers+text',
+    text:text_total,
     line:{color:"#996100", width:3},
     name: "total_cases"
   };
@@ -18,6 +28,8 @@ var deaths = JSON.parse(document.getElementById("deaths").value);
     x: dates,
     y: recovered,
     type: 'scatter',
+    mode:'lines+markers+text',
+    text:text_recovered,
     line:{color:"#0d853d", width:3},
     name: "recovered"
   };
@@ -26,6 +38,8 @@ var deaths = JSON.parse(document.getElementById("deaths").value);
     x: dates,
     y: deaths,
     type: 'scatter',
+    mode:'lines+markers+text',
+    text:text_deaths,
     line:{color:"#d42828", width:3},
     name:'deaths'
   };
