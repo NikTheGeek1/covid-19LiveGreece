@@ -20,7 +20,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
     type: 'scatter',
     mode:'lines+markers+text',
     text:text_total,
-    textposition: 'top',
+    textposition: 'right',
     textfont:{size:22, color:"#996100"},
     line:{color:"#996100", width:3},
     name: "total_cases"
@@ -32,7 +32,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
     type: 'scatter',
     mode:'lines+markers+text',
     text:text_recovered,
-    textposition: 'top',
+    textposition: 'right',
     textfont:{size:22, color:"#0d853d"},
     line:{color:"#0d853d", width:3},
     name: "recovered"
@@ -44,7 +44,7 @@ text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
     type: 'scatter',
     mode:'lines+markers+text',
     text:text_deaths,
-    textposition: 'top',
+    textposition: 'right',
     textfont:{size:22, color:"#d42828"},
     line:{color:"#d42828", width:3},
     name:'deaths'
