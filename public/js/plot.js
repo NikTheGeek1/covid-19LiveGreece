@@ -19,7 +19,7 @@ const maxRange_deaths = Math.max(...deaths) + (Math.round((Math.max(...deaths)- 
 const maxRange_recovered = Math.max(...text_recovered) + (Math.round((Math.max(...text_recovered)- Math.min(...text_recovered))/4 ));
 
 const maxRange_secondPlot = Math.max(maxRange_deaths, maxRange_recovered);
-const minRange_secondPlot = Math.Min(Math.min(...deaths), Math.min(...recovered));
+const minRange_secondPlot = Math.min(Math.min(...deaths), Math.min(...recovered));
 
 const range_total = [Math.min(...total_cases), maxRange_total];
 const range_secondPlot = [minRange_secondPlot, maxRange_secondPlot];
