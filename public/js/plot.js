@@ -24,6 +24,9 @@ const minRange_secondPlot = Math.min(Math.min(...deaths), Math.min(...recovered)
 const range_total = [Math.min(...total_cases), maxRange_total];
 const range_secondPlot = [minRange_secondPlot, maxRange_secondPlot];
 
+last_date = dates[dates.length-1];
+const last_update = 'Last updated: '+last_date;
+
   var total_cases = {
     x: dates,
     y: total_cases,
@@ -63,7 +66,7 @@ const range_secondPlot = [minRange_secondPlot, maxRange_secondPlot];
 
   layout= {
     title: {
-    text:"Coronavirus cases in Greece over time",
+    text:"Coronavirus cases in Greece over time <br>"+last_update,
     font: {
       family: 'Courier New, monospace',
       size: 28
