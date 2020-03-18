@@ -32,7 +32,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
 
 
     cron.schedule('0 0 */4 * * *', function(){
-      //console.log('here');
+    console.log('Data Collect', Date());
     scrap_fun.webScrapFUN();
     });
 
