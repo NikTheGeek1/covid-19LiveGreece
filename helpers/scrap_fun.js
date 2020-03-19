@@ -18,7 +18,7 @@ const Stamp = require('../models/mongoosSchema'); // fetching the userSchema in 
 
         $('td').each(function(i,e) {
           let str = $(e).text();
-          if (str === ' Greece '){
+          if (str === ' Greece ' || str === 'Greece' || str === ' Greece' || str === 'Greece '){
             indices = [i, i+1, i+3, i+5];
             return
           }

@@ -16,7 +16,8 @@ const MongoClient = require('mongodb').MongoClient;
 container.resolve(function(index, scrap_fun){ // brings the modules from the container. we run everyting in here
   // adding mongoose connection to the database
   mongoose.Promise = global.Promise;
-  mongoose.connect(process.env.MONGO_URI, {useNewUrlParser:true, useUnifiedTopology: true })
+  //process.env.MONGO_URI
+  mongoose.connect(  "mongodb+srv://ntheodoropoulos:nikblod1@cluster0-cfrox.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology: true })
 
   const db = mongoose.connection;
 
@@ -30,15 +31,14 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
     const app = express();
     const server = http.createServer(app);
 
-
-    cron.schedule('0 */4 * * *', function(){
+    cron.schedule("0 */4 * * *", function(){
     console.log('Data Collect', Date());
     scrap_fun.webScrapFUN();
     });
 
 
-    server.listen(process.env.PORT || 3000, function(){
-      console.log('Listening on port 3000');
+    server.listen(process.env.PORT || 3001, function(){
+      console.log('Listening on port 3001');
     });
     ConfigureExpress(app);
 
@@ -64,7 +64,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
     app.use(bodyParser.urlencoded({extended: true}));
 
     app.use(session({ // allows to save sessions
-      secret: process.env.SECRET_KEY,
+      secret: "thisisasecretkey",//process.env.SECRET_KEY,
       resave: true,
       saveUninitialized: true,
       saveInitialized: true,
