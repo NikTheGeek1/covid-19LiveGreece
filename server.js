@@ -17,7 +17,8 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
   // adding mongoose connection to the database
   mongoose.Promise = global.Promise;
   //process.env.MONGO_URI
-  mongoose.connect(  "mongodb+srv://ntheodoropoulos:nikblod1@cluster0-cfrox.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology: true })
+  mongoose.connect( process.env.MONGO_URI, {useNewUrlParser:true, useUnifiedTopology: true })
+
 
   const db = mongoose.connection;
 
@@ -64,7 +65,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
     app.use(bodyParser.urlencoded({extended: true}));
 
     app.use(session({ // allows to save sessions
-      secret: "thisisasecretkey",//process.env.SECRET_KEY,
+      secret: process.env.SECRET_KEY,
       resave: true,
       saveUninitialized: true,
       saveInitialized: true,
