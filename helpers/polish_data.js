@@ -5,6 +5,7 @@ module.exports = function(_){
         total_cases = [];
         recovered = [];
         deaths = [];
+        news = [];
 
 
       Stamp.find({}, function (err, allDetails) {
@@ -13,8 +14,9 @@ module.exports = function(_){
           total_cases.push(Number(val.total_cases));
           recovered.push(Number(val.recovered));
           deaths.push(Number(val.deaths));
+          news.push(val.news);
         });
-        return {dates, total_cases, recovered, deaths}
+        return {dates, total_cases, recovered, deaths, news}
 
         });
 

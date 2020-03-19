@@ -6,6 +6,7 @@ const dataSchema = mongoose.Schema({ // creating the schema (data structure whic
   total_cases:{type: String},
   recovered:{type: String},
   deaths:{type: String},
+  news:{type:String}
 });
 
 module.exports = mongoose.model('Stamp', dataSchema); // exporting the user data

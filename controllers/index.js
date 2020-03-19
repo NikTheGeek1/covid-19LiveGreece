@@ -11,6 +11,7 @@ module.exports = function(polish_data, _){
       const total_cases = [];
       const recovered = [];
       const deaths = [];
+      const news = [];
 
     Stamp.find({}, function (err, allDetails) {
       _.forEach(allDetails, function(val, key) {
@@ -18,13 +19,15 @@ module.exports = function(polish_data, _){
         total_cases.push(Number(val.total_cases));
         recovered.push(Number(val.recovered));
         deaths.push(Number(val.deaths));
+        news.push(val.news);
+
       });
       res.render('index', {
         dates:JSON.stringify(dates),
         total_cases:JSON.stringify(total_cases),
         recovered:JSON.stringify(recovered),
-        deaths:JSON.stringify(deaths)
-
+        deaths:JSON.stringify(deaths),
+        news:JSON.stringify(news)
       });
 
       });
