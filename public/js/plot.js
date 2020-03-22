@@ -1,10 +1,17 @@
 $(document).ready(function(){
 
-var dates = JSON.parse(document.getElementById("dates").value);
-var total_cases = JSON.parse(document.getElementById("total_cases").value);
-var recovered = JSON.parse(document.getElementById("recovered").value);
-var deaths = JSON.parse(document.getElementById("deaths").value);
+var dates_unsorted = JSON.parse(document.getElementById("dates").value);
+var total_cases_unsorted = JSON.parse(document.getElementById("total_cases").value);
+var recovered_unsorted = JSON.parse(document.getElementById("recovered").value);
+var deaths_unsorted = JSON.parse(document.getElementById("deaths").value);
 var news = JSON.parse(document.getElementById("news").value);
+
+// sorting data
+var dates = getSortedIdx(dates_unsorted);
+var total_cases = sortARR(total_cases_unsorted, dates_unsorted.sortIndices);
+var recovered = sortARR(recovered_unsorted, dates_unsorted.sortIndices);
+var deaths = sortARR(deaths_unsorted, dates_unsorted.sortIndices);
+
 
 const text_total = Array(total_cases.length).fill("");
 const text_deaths = Array(deaths.length).fill("");
@@ -13,7 +20,6 @@ text_total[text_total.length-1] = String(total_cases[total_cases.length-1]);
 text_deaths[text_deaths.length-1] = String(deaths[deaths.length-1]);
 text_recovered[text_recovered.length-1] = String(recovered[recovered.length-1]);
 const text_news = news[news.length-1];
-console.log(news);
 $('#news_div').text(text_news);
 
 const maxRange_total = Math.max(...total_cases) + (Math.round((Math.max(...total_cases)- Math.min(...total_cases))/4 ));

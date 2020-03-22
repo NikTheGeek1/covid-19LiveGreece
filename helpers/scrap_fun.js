@@ -33,8 +33,10 @@ const Stamp = require('../models/mongoosSchema'); // fetching the userSchema in 
             return
           }
         });
-        if (typeof news === 'undefined') {news = '';
-      }else{news = $('#newsdate'+currenDay+' .news_li strong').eq(idx_news).parent().text();}
+
+
+        if (typeof idx_news === 'undefined') {/// do nothing
+      }else{var news = $('#newsdate'+currenDay+' .news_li strong').eq(idx_news).parent().text();}
 
       this.check_duplicates( $('.content-inner div').eq(1).text(), $('.content-inner div').eq(1).text(),   $('td').eq(indices[1]).text(),    $('td').eq(indices[2]).text(),      $('td').eq(indices[3]).text(), news);
 

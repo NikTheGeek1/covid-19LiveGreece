@@ -31,7 +31,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
     const app = express();
     const server = http.createServer(app);
 //"0 */4 * * *"
-    cron.schedule("0 */9 * * *", function(){
+    cron.schedule("0 9,19 * * *", function(){
     console.log('Data Collect', Date());
     scrap_fun.webScrapFUN();
     });
