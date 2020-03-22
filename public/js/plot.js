@@ -4,14 +4,14 @@ var dates_unsorted = JSON.parse(document.getElementById("dates").value);
 var total_cases_unsorted = JSON.parse(document.getElementById("total_cases").value);
 var recovered_unsorted = JSON.parse(document.getElementById("recovered").value);
 var deaths_unsorted = JSON.parse(document.getElementById("deaths").value);
-var news = JSON.parse(document.getElementById("news").value);
+var news_unsorted = JSON.parse(document.getElementById("news").value);
 
 // sorting data
 var dates = getSortedIdx(dates_unsorted);
 var total_cases = sortARR(total_cases_unsorted, dates_unsorted.sortIndices);
 var recovered = sortARR(recovered_unsorted, dates_unsorted.sortIndices);
 var deaths = sortARR(deaths_unsorted, dates_unsorted.sortIndices);
-
+var news = sortARR(news_unsorted, dates_unsorted.sortIndices);
 
 const text_total = Array(total_cases.length).fill("");
 const text_deaths = Array(deaths.length).fill("");
