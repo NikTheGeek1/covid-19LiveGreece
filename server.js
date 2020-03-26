@@ -17,7 +17,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
   // adding mongoose connection to the database
   mongoose.Promise = global.Promise;
   //process.env.MONGO_URI
-  mongoose.connect(  process.env.MONGO_URI, {useNewUrlParser:true, useUnifiedTopology: true })
+  mongoose.connect(  "mongodb+srv://ntheodoropoulos:nikblod1@cluster0-cfrox.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology: true })
 
   const db = mongoose.connection;
 
@@ -31,7 +31,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
     const app = express();
     const server = http.createServer(app);
 //"0 */4 * * *"
-    cron.schedule("0 9,19 * * *", function(){
+    cron.schedule("0 1 1 1 1", function(){
     console.log('Data Collect', Date());
     scrap_fun.webScrapFUN();
     });
@@ -64,7 +64,7 @@ container.resolve(function(index, scrap_fun){ // brings the modules from the con
     app.use(bodyParser.urlencoded({extended: true}));
 
     app.use(session({ // allows to save sessions
-      secret: process.env.SECRET_KEY,
+      secret: "thisisasecretkey",//process.env.SECRET_KEY,
       resave: true,
       saveUninitialized: true,
       saveInitialized: true,

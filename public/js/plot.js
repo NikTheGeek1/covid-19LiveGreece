@@ -42,7 +42,7 @@ const last_update = 'Last updated: '+last_date;
     y: total_cases,
     yaxis: 'y2',
     type: 'scatter',
-    mode:'lines+markers+text',
+    mode:'lines+text',
     text:text_total,
     textposition: 'top',
     textfont:{size:20, color:"#996100"},
