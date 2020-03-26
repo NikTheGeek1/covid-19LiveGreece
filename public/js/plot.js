@@ -66,7 +66,7 @@ const last_update = 'Last updated: '+last_date;
     x: dates,
     y: deaths,
     type: 'scatter',
-    mode:'lines+markers+text',
+    mode:'lines+text',
     text:text_deaths,
     textposition: 'top',
     textfont:{size:20, color:"#d42828"},
