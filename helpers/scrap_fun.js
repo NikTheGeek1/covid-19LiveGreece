@@ -79,9 +79,9 @@ const Stamp = require('../models/mongoosSchema'); // fetching the userSchema in 
     store: function(time, total, deaths, recovered, news){
       const newStamp = new Stamp();
       newStamp['update_time'] = time;
-      newStamp['total_cases'] = Number(total);
-      newStamp['recovered'] = Number(recovered);
-      newStamp['deaths'] = Number(deaths);
+      newStamp['total_cases'] = Number(total.replace(/,/g, ""));
+      newStamp['recovered'] = Number(recovered.replace(/,/g, ""));
+      newStamp['deaths'] = Number(deaths.replace(/,/g, ""));
       newStamp['news'] = news;
 
       newStamp.save(function (err) {
