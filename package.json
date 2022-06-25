@@ -41,7 +41,7 @@
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.4",
     "node-cron": "^2.0.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {}
 }
